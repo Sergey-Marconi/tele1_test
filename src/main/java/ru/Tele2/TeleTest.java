@@ -1,30 +1,24 @@
 package ru.Tele2;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import pages.SearchPage;
 
 
 public class TeleTest extends Settings {
 
- @Test
+    @Test
 
-    public void SearchPage(){
-        driver.get("https://voronezh.tele2.ru");
-
+    public void SearchPage() throws InterruptedException {
         SearchPage searchPage = PageFactory.initElements(driver, SearchPage.class);
 
-        searchPage.setSearchButton();
-        searchPage.inputSearch();
-        searchPage.inputText();
-        searchPage.clickText();
-
-
+        driver.manage().window().maximize();
+        searchPage.searchButton.click();
+        driver.wait(3000);
+        searchPage.inputSearch.click();
+        driver.wait(3000);
+        searchPage.inputText.click();
+        driver.wait(3000);
+        searchPage.clickText.click();
     }
-
 }
